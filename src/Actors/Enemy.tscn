@@ -169,8 +169,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 11.0
-height = 7.0
+radius = 5.34858
+height = 2.65325
 
 [sub_resource type="CanvasItemMaterial" id=6]
 blend_mode = 1
@@ -180,7 +180,7 @@ offsets = PoolRealArray( 0.5, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
 
 [node name="Enemy" type="KinematicBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 25
 script = ExtResource( 5 )
 speed = Vector2( 75, 250 )
@@ -192,19 +192,21 @@ cast_to = Vector2( 0, 8 )
 collision_mask = 8
 
 [node name="FloorDetectorLeft" type="RayCast2D" parent="."]
-position = Vector2( -15, -4 )
+position = Vector2( -14, -8 )
 enabled = true
 cast_to = Vector2( 0, 35 )
 collision_mask = 24
 
 [node name="FloorDetectorRight" type="RayCast2D" parent="."]
-position = Vector2( 15.5, -3 )
+position = Vector2( 15, -7 )
 enabled = true
 cast_to = Vector2( 0, 35 )
 collision_mask = 24
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
+position = Vector2( 0, -6.50974 )
+rotation = 0.0110037
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 8
@@ -216,7 +218,9 @@ anims/idle = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5708
+position = Vector2( -5.96046e-08, -7 )
+rotation = 1.53476
+scale = Vector2( 1.31375, 1.46293 )
 shape = SubResource( 5 )
 
 [node name="Explosion" type="CPUParticles2D" parent="."]

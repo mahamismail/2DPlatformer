@@ -80,10 +80,10 @@ func _physics_process(_delta):
 		else:
 			sprite.scale.x = -1
 
-	if get_slide_count() > 0:
-		for index in range(get_slide_count()):
-			if "Enemy" in get_slide_collision(index).collider.name:
-				emit_signal("lose_health")
+	#if get_slide_count() > 0:
+	#	for index in range(get_slide_count()):
+	#		if "Enemy" in get_slide_collision(index).collider.name:
+	#			emit_signal("lose_health")
 
 	# We use the sprite's scale to store Robi’s look direction which allows us to shoot
 	# bullets forward.
@@ -142,3 +142,8 @@ func get_new_animation(is_shooting = false):
 		animation_new += "_weapon"
 	return animation_new
 
+
+
+func _on_RigidBody2D_body_entered(body):
+	hide()
+	pass # Replace with function body.

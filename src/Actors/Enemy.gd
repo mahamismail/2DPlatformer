@@ -1,7 +1,6 @@
 class_name Enemy
 extends Actor
 
-
 enum State {
 	WALKING,
 	DEAD,
@@ -19,7 +18,7 @@ onready var animation_player = $AnimationPlayer
 # We can initialize variables here.
 func _ready():
 	_velocity.x = speed.x
-
+	
 # Physics process is a built-in loop in Godot.
 # If you define _physics_process on a node, Godot will call it every frame.
 

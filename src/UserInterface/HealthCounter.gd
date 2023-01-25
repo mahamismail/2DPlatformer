@@ -3,6 +3,8 @@ extends Panel
 var health = Global.health
 onready var health_label = $Amount
 
+onready var animation_player = $Heart/AnimationPlayer
+
 signal you_Died()
 
 func _ready():
@@ -14,9 +16,10 @@ func _ready():
 		_level_node.get_node("Player2").connect("lose_health", self, "_lose_health")
 	else:
 		var _player_path = get_node(@"../../Level/Player")
-		_player_path.connect("hit", self, "_lose_health")
-
+		_player_path.connect("lose_health", self, "_lose_health")
+	
 func _lose_health():
+	animation_player.play("HeartLost")
 	health = health-1
 	health_label.set_text(str(health))
 	print(health)
