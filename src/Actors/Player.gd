@@ -3,7 +3,7 @@ extends Actor
 
 # warning-ignore:unused_signal
 signal collect_coin()
-signal hit()
+signal lose_health()
 
 var health = Global.health
 
@@ -32,8 +32,8 @@ func _ready():
 		yield(get_tree(), "idle_frame")
 		camera.make_current()
 
-	var _healthCounter_path = get_node(@"../../InterfaceLayer/HealthCounter")
-	_healthCounter_path.connect("you_Died", self, "you_Died")
+	#var _healthCounter_path = get_node(@"../../InterfaceLayer/HealthCounter")
+	#_healthCounter_path.connect("you_Died", self, "you_Died")
 
 
 # Physics process is a built-in loop in Godot.
@@ -79,6 +79,11 @@ func _physics_process(_delta):
 			sprite.scale.x = 1
 		else:
 			sprite.scale.x = -1
+
+	if get_slide_count() > 0:
+		for index in range(get_slide_count()):
+			if "Enemy" in get_slide_collision(index).collider.name:
+				emit_signal("lose_health")
 
 	# We use the sprite's scale to store Robi’s look direction which allows us to shoot
 	# bullets forward.
@@ -137,10 +142,3 @@ func get_new_animation(is_shooting = false):
 		animation_new += "_weapon"
 	return animation_new
 
-func _on_Area2D_body_entered():
-	emit_signal("hit")
-	pass # Replace with function body.
-
-func you_Died():
-	hide()
-	pass
