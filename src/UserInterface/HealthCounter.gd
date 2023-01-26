@@ -1,7 +1,7 @@
 extends Panel
 
-var health = 3
-#var health = Global.health
+#var health = 3
+var health = Global.health
 onready var health_label = $Amount
 
 onready var animation_player = $Heart/AnimationPlayer

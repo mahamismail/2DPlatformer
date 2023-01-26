@@ -6,6 +6,8 @@ extends Node
 # The "_" prefix is a convention to indicate that variables are private,
 # that is to say, another node or script should not access them.
 onready var _pause_menu = $InterfaceLayer/PauseMenu
+onready var pause_menu_label = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/Label
+onready var resume_button = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/ResumeButton
 
 func _init():
 	OS.min_window_size = OS.window_size
@@ -48,3 +50,11 @@ func _unhandled_input(event):
 			# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://src/Main/Splitscreen.tscn")
 
+
+
+func end_Game():
+			_pause_menu.open()
+			pause_menu_label.set_text("Game Over")
+			resume_button.hide()
+			
+		

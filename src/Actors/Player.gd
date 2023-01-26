@@ -5,6 +5,7 @@ extends Actor
 signal collect_coin()
 signal lose_health()
 
+onready var game_Path = get_node(@"../../")
 #var health = Global.health
 
 const FLOOR_DETECT_DISTANCE = 20.0
@@ -32,6 +33,7 @@ func _ready():
 		yield(get_tree(), "idle_frame")
 		camera.make_current()
 
+	
 	#var healthCounter_path = get_node(@"../../InterfaceLayer/HealthCounter")
 	#healthCounter_path.connect("you_Died", self, "_you_Died")
 
@@ -148,5 +150,7 @@ func _on_Area2D_body_entered(body):
 	pass # Replace with function body.
 
 func _you_Died():
-	queue_free()
+	$CollisionShape2D.set_deferred("disabled", true)
+	hide()
+	game_Path.end_Game()
 	pass # Replace with function body.
