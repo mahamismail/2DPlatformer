@@ -25,6 +25,6 @@ func _collect_coin():
 	coins_collected += 1
 	coins_label.set_text(str(coins_collected))
 	
-	if coins_collected == 40:
+	if coins_collected == 40: #if all 40 coins collected, emit the signal "you win"
 		emit_signal("you_Win")
 		pass

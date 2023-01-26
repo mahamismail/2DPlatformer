@@ -50,12 +50,13 @@ func _unhandled_input(event):
 			# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://src/Main/Splitscreen.tscn")
 
-
+#function for the result of winning the game. Menu display
 func win_Game():
 	_pause_menu.open()
 	pause_menu_label.set_text("You win!")
 	resume_button.hide()
 
+#function for the result of dying. Menu display
 func end_Game():
 	_pause_menu.open()
 	pause_menu_label.set_text("You Died!")
