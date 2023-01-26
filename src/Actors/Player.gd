@@ -5,7 +5,7 @@ extends Actor
 signal collect_coin()
 signal lose_health()
 
-var health = Global.health
+#var health = Global.health
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
@@ -32,8 +32,8 @@ func _ready():
 		yield(get_tree(), "idle_frame")
 		camera.make_current()
 
-	#var _healthCounter_path = get_node(@"../../InterfaceLayer/HealthCounter")
-	#_healthCounter_path.connect("you_Died", self, "you_Died")
+	#var healthCounter_path = get_node(@"../../InterfaceLayer/HealthCounter")
+	#healthCounter_path.connect("you_Died", self, "_you_Died")
 
 
 # Physics process is a built-in loop in Godot.
@@ -142,8 +142,11 @@ func get_new_animation(is_shooting = false):
 		animation_new += "_weapon"
 	return animation_new
 
+func _on_Area2D_body_entered(body):
+	emit_signal("lose_health")
+	#hide()
+	pass # Replace with function body.
 
-
-func _on_RigidBody2D_body_entered(body):
-	hide()
+func _you_Died():
+	queue_free()
 	pass # Replace with function body.

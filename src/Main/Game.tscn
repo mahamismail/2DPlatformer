@@ -26,3 +26,5 @@ margin_right = 105.0
 margin_bottom = 50.0
 
 [node name="HealthCounter" parent="InterfaceLayer" instance=ExtResource( 6 )]
+
+[connection signal="you_Died" from="InterfaceLayer/HealthCounter" to="Level/Player" method="_you_Died"]
