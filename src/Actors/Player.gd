@@ -33,11 +33,6 @@ func _ready():
 		yield(get_tree(), "idle_frame")
 		camera.make_current()
 
-	
-	#var healthCounter_path = get_node(@"../../InterfaceLayer/HealthCounter")
-	#healthCounter_path.connect("you_Died", self, "_you_Died")
-
-
 # Physics process is a built-in loop in Godot.
 # If you define _physics_process on a node, Godot will call it every frame.
 
@@ -146,8 +141,6 @@ func get_new_animation(is_shooting = false):
 
 func _on_Area2D_body_entered(body):
 	emit_signal("lose_health")
-	#hide()
-	pass # Replace with function body.
 
 func _you_Died():
 	$CollisionShape2D.set_deferred("disabled", true)

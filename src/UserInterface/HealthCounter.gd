@@ -25,6 +25,6 @@ func _lose_health():
 	health_label.set_text(str(health))
 	print(health)
 	
-	if health == 0:
+	if health <= 0:
 		emit_signal("you_Died")
 		pass
