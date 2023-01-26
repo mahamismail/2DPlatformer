@@ -51,10 +51,14 @@ func _unhandled_input(event):
 			get_tree().change_scene("res://src/Main/Splitscreen.tscn")
 
 
+func win_Game():
+	_pause_menu.open()
+	pause_menu_label.set_text("You win!")
+	resume_button.hide()
 
 func end_Game():
-			_pause_menu.open()
-			pause_menu_label.set_text("You Died!")
-			resume_button.hide()
+	_pause_menu.open()
+	pause_menu_label.set_text("You Died!")
+	resume_button.hide()
 			
 		

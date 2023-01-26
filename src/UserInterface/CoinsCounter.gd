@@ -4,6 +4,7 @@ var coins_collected = 0
 
 onready var coins_label = $Label
 
+signal you_Win()
 
 func _ready():
 	coins_label.set_text(str(coins_collected))
@@ -23,3 +24,7 @@ func _ready():
 func _collect_coin():
 	coins_collected += 1
 	coins_label.set_text(str(coins_collected))
+	
+	if coins_collected == 40:
+		emit_signal("you_Win")
+		pass

@@ -282,8 +282,8 @@ position = Vector2( 49, 323 )
 scale = Vector2( 1.47277, 2.13706 )
 
 [node name="Lava5" parent="Lava" instance=ExtResource( 10 )]
-position = Vector2( -78, 98 )
-scale = Vector2( 2.08798, 1.36863 )
+position = Vector2( -45, 96 )
+scale = Vector2( 1.60798, 1.36863 )
 
 [node name="Lava6" parent="Lava" instance=ExtResource( 10 )]
 position = Vector2( 351, 131 )
