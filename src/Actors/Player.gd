@@ -144,6 +144,6 @@ func _on_Area2D_body_entered(body):
 
 func _you_Died():
 	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
-	hide() // make the player invisible.
+	hide() # make the player invisible.
 	game_Path.end_Game()
 	pass # Replace with function body.
