@@ -54,7 +54,7 @@ func _unhandled_input(event):
 
 func end_Game():
 			_pause_menu.open()
-			pause_menu_label.set_text("Game Over")
+			pause_menu_label.set_text("You Died!")
 			resume_button.hide()
 			
 		

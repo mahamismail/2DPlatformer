@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/Level/ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Level/Music.gd" type="Script" id=9]
+[ext_resource path="res://src/Objects/Lava.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "move"
@@ -265,3 +266,25 @@ position = Vector2( 828.515, 77.262 )
 stream = ExtResource( 8 )
 autoplay = true
 script = ExtResource( 9 )
+
+[node name="Lava" type="Node" parent="."]
+
+[node name="Lava3" parent="Lava" instance=ExtResource( 10 )]
+position = Vector2( 219, 736 )
+scale = Vector2( 1.47277, 2.13706 )
+
+[node name="Lava2" parent="Lava" instance=ExtResource( 10 )]
+position = Vector2( -156, 511 )
+scale = Vector2( 2.36, 2 )
+
+[node name="Lava4" parent="Lava" instance=ExtResource( 10 )]
+position = Vector2( 49, 323 )
+scale = Vector2( 1.47277, 2.13706 )
+
+[node name="Lava5" parent="Lava" instance=ExtResource( 10 )]
+position = Vector2( -78, 98 )
+scale = Vector2( 2.08798, 1.36863 )
+
+[node name="Lava6" parent="Lava" instance=ExtResource( 10 )]
+position = Vector2( 351, 131 )
+scale = Vector2( 1.28799, 1.36863 )
