@@ -230,6 +230,7 @@ splitscreen={
 2d_physics/layer_4="platforms"
 2d_physics/layer_5="ground"
 2d_physics/layer_6="lava"
+2d_physics/layer_7="door"
 
 [physics]
 
