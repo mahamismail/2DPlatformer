@@ -140,7 +140,8 @@ func get_new_animation(is_shooting = false):
 	return animation_new
 
 func _on_Area2D_body_entered(body):
-	emit_signal("lose_health")
+	if body is Enemy:
+		emit_signal("lose_health")
 
 func _you_Died():
 	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives

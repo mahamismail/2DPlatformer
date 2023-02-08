@@ -1,6 +1,6 @@
 extends Panel
 
-var coins_collected = 0
+var coins_collected = Global.coins_collected
 
 onready var coins_label = $Label
 
@@ -15,6 +15,7 @@ func _ready():
 func _collect_coin():
 	coins_collected += 1
 	coins_label.set_text(str(coins_collected))
+	print(Global.coin_collected)
 	
 	if coins_collected == 40: #if all 40 coins collected, emit the signal "you win"
 		emit_signal("you_Win")
