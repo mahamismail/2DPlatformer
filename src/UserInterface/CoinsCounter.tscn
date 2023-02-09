@@ -55,3 +55,5 @@ position = Vector2( 21.5, 22.5 )
 scale = Vector2( 4.375, 4.375 )
 frames = SubResource( 6 )
 animation = "coin_spinning"
+
+[connection signal="you_Win" from="." to="." method="win_Game"]

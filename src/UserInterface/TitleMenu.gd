@@ -10,3 +10,8 @@ func _on_PlayButton_pressed():
 func _on_QuitButton_pressed():
 	scene_root.notification(NOTIFICATION_WM_QUIT_REQUEST)
 	get_tree().quit()
+
+
+func _on_AboutGameButton_pressed():
+	get_tree().change_scene("res://src/UserInterface/About.tscn");
+

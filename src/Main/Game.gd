@@ -8,6 +8,7 @@ extends Node
 onready var _pause_menu = $InterfaceLayer/PauseMenu
 onready var pause_menu_label = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/Label
 onready var resume_button = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/ResumeButton
+onready var playAgain_button = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/PlayAgainButton
 
 func _init():
 	OS.min_window_size = OS.window_size
@@ -49,5 +50,6 @@ func win_Game():
 #function for the result of dying. Menu display
 func end_Game():
 	_pause_menu.open()
-	pause_menu_label.set_text("You Died!")
+	pause_menu_label.set_text("You died!")
+	playAgain_button.show()
 	resume_button.hide()

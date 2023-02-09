@@ -56,3 +56,11 @@ func _on_QuitButton_pressed():
 func _on_Tween_all_completed():
 	if modulate.a < 0.5:
 		hide()
+
+
+func _on_PlayAgainButton_pressed():
+	if get_tree().get_current_scene().get_name() == "Game":
+		get_tree().change_scene("res://src/Main/Game.tscn")
+	elif get_tree().get_current_scene().get_name() == "Game2":
+		get_tree().change_scene("res://src/Main/Game2.tscn")
+	

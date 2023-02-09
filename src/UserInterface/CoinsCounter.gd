@@ -11,11 +11,14 @@ func _ready():
 	# Static types are necessary here to avoid warnings.
 	var anim_sprite: AnimatedSprite = $AnimatedSprite
 	anim_sprite.play()
+	
+	var _player_path = get_node(@"../../Level/Player")
+	#var _player_path = get_node(@"../../Level/Player")
+	_player_path.connect("collect_coin", self, "_collect_coin")
 
 func _collect_coin():
 	coins_collected += 1
 	coins_label.set_text(str(coins_collected))
-	print(Global.coin_collected)
 	
 	if coins_collected == 40: #if all 40 coins collected, emit the signal "you win"
 		emit_signal("you_Win")

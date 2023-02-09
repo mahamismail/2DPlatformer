@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
+[ext_resource path="res://src/UserInterface/QuestsMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/ui/close.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/ui/quest.png" type="Texture" id=5]
+
+[node name="QuestMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.133333 )
+
+[node name="CloseButton" type="Button" parent="ColorRect"]
+margin_left = 113.0
+margin_top = 196.0
+margin_right = 178.0
+margin_bottom = 258.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 20, 40 )
+rect_scale = Vector2( 0.360001, 0.360001 )
+size_flags_horizontal = 4
+icon = ExtResource( 3 )
+
+[node name="QuestPanel" type="TabContainer" parent="ColorRect"]
+margin_left = 177.234
+margin_top = 67.0
+margin_right = 780.234
+margin_bottom = 464.0
+grow_horizontal = 0
+rect_scale = Vector2( 0.878504, 0.878504 )
+
+[node name="In Progress" type="CenterContainer" parent="ColorRect/QuestPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 56.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TextEdit" type="Label" parent="ColorRect/QuestPanel/In Progress"]
+margin_left = 76.0
+margin_top = 149.0
+margin_right = 519.0
+margin_bottom = 187.0
+size_flags_horizontal = 0
+size_flags_vertical = 5
+theme = ExtResource( 1 )
+text = "You do not have any quests."
+align = 1
+
+[node name="Completed" type="CenterContainer" parent="ColorRect/QuestPanel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 48.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TextEdit2" type="Label" parent="ColorRect/QuestPanel/Completed"]
+margin_left = 76.0
+margin_top = 153.0
+margin_right = 519.0
+margin_bottom = 191.0
+size_flags_horizontal = 0
+size_flags_vertical = 5
+theme = ExtResource( 1 )
+text = "You do not have any quests."
+align = 1
+
+[node name="Quest" type="Sprite" parent="ColorRect"]
+position = Vector2( 127, 267 )
+scale = Vector2( 1.31552, 1.31552 )
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="ColorRect/CloseButton" to="." method="_on_CloseButton_pressed"]

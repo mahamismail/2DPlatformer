@@ -26,51 +26,61 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
 margin_left = 250.0
-margin_top = 140.0
+margin_top = 121.0
 margin_right = 550.0
-margin_bottom = 340.0
+margin_bottom = 358.0
 rect_min_size = Vector2( 300, 200 )
-custom_constants/separation = 6
+custom_constants/separation = 30
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 7.0
 margin_right = 300.0
-margin_bottom = 62.0
+margin_bottom = 55.0
 custom_fonts/font = SubResource( 1 )
 text = "Game paused"
 align = 1
 valign = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 68.0
+margin_top = 85.0
 margin_right = 300.0
-margin_bottom = 88.0
-rect_min_size = Vector2( 0, 20 )
+margin_bottom = 85.0
+rect_min_size = Vector2( 50, 0 )
 
 [node name="ResumeButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_left = 60.0
-margin_top = 94.0
-margin_right = 240.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 180, 40 )
+margin_left = 40.0
+margin_top = 115.0
+margin_right = 260.0
+margin_bottom = 161.0
+rect_min_size = Vector2( 220, 40 )
 size_flags_horizontal = 4
 text = "Resume"
 
+[node name="PlayAgainButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+visible = false
+margin_left = 40.0
+margin_top = 191.0
+margin_right = 260.0
+margin_bottom = 237.0
+rect_min_size = Vector2( 220, 40 )
+size_flags_horizontal = 4
+text = "Try Again"
+
 [node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_left = 60.0
-margin_top = 146.0
-margin_right = 240.0
-margin_bottom = 192.0
-rect_min_size = Vector2( 180, 40 )
+margin_left = 40.0
+margin_top = 191.0
+margin_right = 260.0
+margin_bottom = 237.0
+rect_min_size = Vector2( 220, 40 )
 size_flags_horizontal = 4
 text = "Quit"
 
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_all_completed"]

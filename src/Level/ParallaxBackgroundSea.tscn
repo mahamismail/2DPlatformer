@@ -9,7 +9,8 @@
 [node name="Parallex Background" type="ParallaxBackground"]
 
 [node name="Sea" type="ParallaxLayer" parent="."]
-position = Vector2( -4, 132 )
+position = Vector2( -4, 58 )
+scale = Vector2( 1.34486, 1.42334 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Sprite" type="Sprite" parent="Sea"]
