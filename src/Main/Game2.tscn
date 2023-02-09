@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/UserInterface/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/UserInterface/HealthCounter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/art/ui/quest.png" type="Texture" id=7]
 [ext_resource path="res://src/UserInterface/QuestsMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Actors/NPCGuy.tscn" type="PackedScene" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.5 )
@@ -20,10 +21,22 @@ script = ExtResource( 2 )
 
 [node name="Level" parent="." instance=ExtResource( 3 )]
 
+[node name="NPCs2" type="Node2D" parent="Level"]
+
+[node name="NPCGuy3" parent="Level/NPCs2" instance=ExtResource( 9 )]
+position = Vector2( 77, -8 )
+
+[node name="NPCGuy4" parent="Level/NPCs2" instance=ExtResource( 9 )]
+position = Vector2( 79, 279 )
+
+[node name="NPCGuy5" parent="Level/NPCs2" instance=ExtResource( 9 )]
+position = Vector2( 555, 661 )
+
 [node name="Player" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 39, -108 )
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="QuestMenu" parent="InterfaceLayer" instance=ExtResource( 8 )]
 

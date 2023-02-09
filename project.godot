@@ -238,6 +238,8 @@ QuestsMenu={
 2d_physics/layer_5="ground"
 2d_physics/layer_6="lava"
 2d_physics/layer_7="door"
+2d_physics/layer_8="NPCGuy1"
+2d_physics/layer_9="NPCGuy2"
 
 [physics]
 

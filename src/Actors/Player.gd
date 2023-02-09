@@ -140,10 +140,32 @@ func get_new_animation(is_shooting = false):
 
 func _on_Area2D_body_entered(body):
 	if body is Enemy:
-		emit_signal("lose_health")
+		emit_signal("lose_health");
+		
+	elif body.get_name() == "NPCGuy1":
+		print("Collision with NPCGuy1 detected!")
+		emit_signal("show_quest1");
+		
+	elif body.get_name() == "NPCGuy2":
+		print("Collision with NPCGuy2 detected!")
+		emit_signal("show_quest2");
+		
+	elif body.get_name() == "NPCGuy3":
+		print("Collision with NPCGuy3 detected!")
+		emit_signal("show_quest3 ");
+		
+	elif body.get_name() == "NPCGuy4":
+		print("Collision with NPCGuy4 detected!")
+		emit_signal("show_quest4");
+		
+	elif body.get_name() == "NPCGuy5":
+		print("Collision with NPCGuy5 detected!")
+		emit_signal("show_quest5");
+		
 
 func _you_Died():
 	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
 	queue_free() # make the player invisible.
 	game_Path.end_Game()
 	pass # Replace with function body.
+

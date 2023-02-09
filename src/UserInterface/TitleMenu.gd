@@ -1,4 +1,4 @@
-extends Button
+extends Control
 
 onready var root = get_tree().get_root()
 onready var scene_root = root.get_child(root.get_child_count() - 1);

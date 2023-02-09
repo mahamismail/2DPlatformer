@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/Level/Music.gd" type="Script" id=9]
 [ext_resource path="res://src/Objects/Lava.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Objects/Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Actors/NPCGuy.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "move"
@@ -263,6 +264,15 @@ position = Vector2( 632.725, 78.5545 )
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 2 )]
 position = Vector2( 828.515, 77.262 )
+
+[node name="NPCs" type="Node2D" parent="."]
+visible = false
+
+[node name="NPCGuy1" parent="NPCs" instance=ExtResource( 12 )]
+position = Vector2( 461, 281 )
+
+[node name="NPCGuy2" parent="NPCs" instance=ExtResource( 12 )]
+position = Vector2( 81, 25 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 

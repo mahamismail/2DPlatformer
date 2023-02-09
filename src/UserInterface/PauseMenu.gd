@@ -48,9 +48,10 @@ func _on_ResumeButton_pressed():
 		close()
 
 
-func _on_QuitButton_pressed():
+func _on_BackToMenu_pressed():
 	scene_root.notification(NOTIFICATION_WM_QUIT_REQUEST)
 	get_tree().quit()
+
 
 
 func _on_Tween_all_completed():

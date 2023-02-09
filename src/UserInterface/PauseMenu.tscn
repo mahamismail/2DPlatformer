@@ -69,7 +69,7 @@ rect_min_size = Vector2( 220, 40 )
 size_flags_horizontal = 4
 text = "Try Again"
 
-[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+[node name="BackToMenuButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 margin_left = 40.0
 margin_top = 191.0
 margin_right = 260.0
@@ -82,5 +82,5 @@ text = "Quit"
 
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
-[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/BackToMenuButton" to="." method="_on_BackToMenu_pressed"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_all_completed"]

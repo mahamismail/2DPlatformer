@@ -1,16 +1,20 @@
 extends KinematicBody2D
 
+enum QuestState {
+	COMPLETED,
+	INPROGRESS,
+	NOTFOUND,
+}
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	QuestState.NOTFOUND
+	
+func quest_is_completed():
+	QuestState.COMPLETED
+	$CollisionShape2D.set_deferred("disabled", true)
+	print("Quest completed!")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func quest_is_inProgress():
+	QuestState.INPROGRESS
+	print("Quest is in progress")
+	
