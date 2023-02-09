@@ -1,35 +1,28 @@
 extends KinematicBody2D
 
-onready var quest = QuestGlobal.quest
+onready var QuestState = QuestGlobal.QuestState
 onready var dialogue = $Dialogue
 #onready var questDisplay = get_node(@"../../../InterfaceLayer/QuestDisplay")
 
 signal quest_accepted()
 
-enum QuestState {
-	COMPLETED,
-	INPROGRESS,
-	NOTFOUNDYET,
-}
-
 func _ready():
-	QuestState.NOTFOUNDYET
 	$Dialogue.hide()
 	
-	if get_parent().get_name() == "NPCGuy1":
-		quest = "Retrieve all 40 coins in this world"
+	#if get_parent().get_name() == "NPCGuy1":
+	#	quest = "Retrieve all 40 coins in this world"
 	
-	elif get_parent().get_name() == "NPCGuy2":
-		quest = "Kill all your enemies!"
+	#elif get_parent().get_name() == "NPCGuy2":
+	#	quest = "Kill all your enemies!"
 	
-	elif get_parent().get_name() == "NPCGuy3":
-		quest = "Find the magic portal!"
+	#elif get_parent().get_name() == "NPCGuy3":
+	#	quest = "Find the magic portal!"
 
-	elif get_parent().get_name() == "NPCGuy4":
-		quest = "Retrieve 40 coins in this world"
+	#elif get_parent().get_name() == "NPCGuy4":
+	#	quest = "Retrieve 40 coins in this world"
 	
-	elif get_parent().get_name() == "NPCGuy5":
-		quest = "Find the secret tunnel"
+	#elif get_parent().get_name() == "NPCGuy5":
+	#	quest = "Find the secret tunnel"
 	
 	#if get_parent().get_name() == "NPCGuy1":
 	#	add_quest("QUEST 1", "Retrieve all 40 coins in this world")
@@ -58,9 +51,10 @@ func _ready():
 func _unhandled_input(event):
 
 	if event.is_action_pressed("yes"):
-		print(quest + "accepted!")
+		print("quest accepted!")
 		emit_signal("quest_accepted")
 		$CollisionShape2D.set_deferred("disabled", true)
+		$TextEdit.set_text("..")
 		
 	if event.is_action_pressed("no"):
 		$Dialogue.hide()

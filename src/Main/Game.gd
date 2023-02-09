@@ -11,7 +11,14 @@ onready var resume_button = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/
 onready var playAgain_button = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/PlayAgainButton
 onready var questDisplay = $InterfaceLayer/QuestDisplay
 onready var questDescription = $InterfaceLayer/QuestDisplay/Panel/QuestDescription
-onready var quest = QuestGlobal.quests
+
+onready var NPCGuy1 = $Level/NPCs2/NPCGuy1
+onready var NPCGuy2 = $Level/NPCs2/NPCGuy2
+onready var NPCGuy3 = $Level/NPCs2/NPCGuy3
+onready var NPCGuy4 = $Level/NPCs2/NPCGuy4
+onready var NPCGuy5 = $Level/NPCs2/NPCGuy5
+
+signal quest_is_inProgress()
 
 func _init():
 	OS.min_window_size = OS.window_size
@@ -48,7 +55,28 @@ func _unhandled_input(event):
 #DON'T FORGET TO LINK ALL THE NPCs TO THIS
 func _quest_accepted():
 	questDisplay.show()
-	questDescription.set_text(quest)
+	
+	if NPCGuy1:
+		questDescription.set_text(QuestGlobal.quest1)
+	
+	elif NPCGuy2:
+		questDescription.set_text(QuestGlobal.quest2)
+	
+	elif NPCGuy3:
+		questDescription.set_text(QuestGlobal.quest3)
+
+	elif NPCGuy4:
+		questDescription.set_text(QuestGlobal.quest4)
+	
+	elif NPCGuy5:
+		questDescription.set_text(QuestGlobal.quest5)
+
+	yield(get_tree().create_timer(10), "timeout")
+	
+	questDisplay.hide()
+	
+	emit_signal("quest_is_inProgress")
+	
 
 #function for the result of winning the game. Menu display
 

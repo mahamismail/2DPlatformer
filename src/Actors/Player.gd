@@ -178,8 +178,3 @@ func _you_Died():
 	game_Path.end_Game()
 	pass # Replace with function body.
 
-################# A function to accept a quest from an NPCGuys
-func quest_accepted(quest):
-	current_quest = quest
-	print("Quest accepted:", quest.name)
-

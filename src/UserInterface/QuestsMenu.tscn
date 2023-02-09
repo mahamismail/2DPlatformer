@@ -30,33 +30,81 @@ size_flags_horizontal = 4
 icon = ExtResource( 3 )
 
 [node name="QuestPanel" type="TabContainer" parent="ColorRect"]
-margin_left = 177.234
-margin_top = 67.0
-margin_right = 780.234
-margin_bottom = 464.0
+margin_left = 177.0
+margin_top = 20.0
+margin_right = 755.0
+margin_bottom = 525.0
 grow_horizontal = 0
 rect_scale = Vector2( 0.878504, 0.878504 )
+size_flags_stretch_ratio = 0.0
 
-[node name="In Progress" type="CenterContainer" parent="ColorRect/QuestPanel"]
+[node name="In Progress" type="VBoxContainer" parent="ColorRect/QuestPanel"]
+anchor_left = 0.037
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
 margin_top = 56.0
-margin_right = -4.0
+margin_right = -6.0
 margin_bottom = -4.0
+rect_min_size = Vector2( 300, 445 )
+rect_pivot_offset = Vector2( 855.597, 192.149 )
+custom_constants/separation = 8
 
-[node name="TextEdit" type="Label" parent="ColorRect/QuestPanel/In Progress"]
-margin_left = 76.0
-margin_top = 149.0
-margin_right = 519.0
-margin_bottom = 187.0
+[node name="Quest 1" type="Label" parent="ColorRect/QuestPanel/In Progress"]
+margin_right = 542.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 300, 38 )
 size_flags_horizontal = 0
 size_flags_vertical = 5
 theme = ExtResource( 1 )
-text = "You do not have any quests."
-align = 1
+text = "Quest 1: 
+Retrieve all 40 coins in this world"
 
-[node name="Completed" type="CenterContainer" parent="ColorRect/QuestPanel"]
+[node name="Quest 2" type="Label" parent="ColorRect/QuestPanel/In Progress"]
+margin_top = 87.0
+margin_right = 339.0
+margin_bottom = 166.0
+rect_min_size = Vector2( 300, 38 )
+size_flags_horizontal = 0
+size_flags_vertical = 5
+theme = ExtResource( 1 )
+text = "QUEST 2: 
+Kill all your enemies!"
+
+[node name="Quest 3" type="Label" parent="ColorRect/QuestPanel/In Progress"]
+margin_top = 174.0
+margin_right = 343.0
+margin_bottom = 253.0
+rect_min_size = Vector2( 300, 38 )
+size_flags_horizontal = 0
+size_flags_vertical = 5
+theme = ExtResource( 1 )
+text = "QUEST 3: 
+Find the magic portal!"
+
+[node name="Quest 4" type="Label" parent="ColorRect/QuestPanel/In Progress"]
+margin_top = 261.0
+margin_right = 485.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 300, 38 )
+size_flags_horizontal = 0
+size_flags_vertical = 5
+theme = ExtResource( 1 )
+text = "QUEST 4: 
+Retrieve 40 coins in this world"
+valign = 1
+
+[node name="Quest 5" type="Label" parent="ColorRect/QuestPanel/In Progress"]
+margin_top = 348.0
+margin_right = 339.0
+margin_bottom = 427.0
+rect_min_size = Vector2( 300, 38 )
+size_flags_horizontal = 0
+size_flags_vertical = 5
+theme = ExtResource( 1 )
+text = "QUEST 5:
+Kill all your enemies!"
+
+[node name="Completed" type="VBoxContainer" parent="ColorRect/QuestPanel"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,9 +114,10 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="TextEdit2" type="Label" parent="ColorRect/QuestPanel/Completed"]
-margin_left = 76.0
+visible = false
+margin_left = 113.0
 margin_top = 153.0
-margin_right = 519.0
+margin_right = 556.0
 margin_bottom = 191.0
 size_flags_horizontal = 0
 size_flags_vertical = 5

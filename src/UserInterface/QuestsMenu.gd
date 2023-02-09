@@ -10,7 +10,12 @@ func _unhandled_input(event):
 	
 func _ready():
 	hide()
-	
+
+
+func _quest_is_inProgress():
+	$ColorRect/QuestPanel/InProgress
+
+
 func questMenu_is_showing(value):
 	questMenu_showing = value
 	get_tree().paused =  questMenu_showing
