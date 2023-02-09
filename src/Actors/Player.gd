@@ -4,6 +4,9 @@ extends Actor
 # warning-ignore:unused_signal
 signal collect_coin()
 signal lose_health()
+signal show_quest()
+
+onready var current_quest = null
 
 onready var game_Path = get_node(@"../../")
 
@@ -17,7 +20,7 @@ onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var sound_jump = $Jump
 onready var gun = sprite.get_node(@"Gun")
-
+	
 func _ready():
 	# Static types are necessary here to avoid warnings.
 	var camera: Camera2D = $Camera
@@ -142,30 +145,41 @@ func _on_Area2D_body_entered(body):
 	if body is Enemy:
 		emit_signal("lose_health");
 		
-	elif body.get_name() == "NPCGuy1":
+	elif body.get_name() == "NPCGuy1" || body.get_name() == "NPCGuy2" || body.get_name() == "NPCGuy3" || body.get_name() == "NPCGuy4" || body.get_name() == "NPCGuy5" :
+		
+		if body.get_node("Timer").time_left == 0:
+			body.get_node("Timer").start()
+			set_collision_mask_bit(0, false)
+			
+		body.get_node("Dialogue").show()
+		body.get_node("TextEdit").hide()  #hides the exclamation marks
+		
 		print("Collision with NPCGuy1 detected!")
-		emit_signal("show_quest1");
+
 		
-	elif body.get_name() == "NPCGuy2":
-		print("Collision with NPCGuy2 detected!")
-		emit_signal("show_quest2");
+
+func _on_Area2D_body_exited(body):
+	
+	if body.get_name() == "NPCGuy1" || body.get_name() == "NPCGuy2" || body.get_name() == "NPCGuy3" || body.get_name() == "NPCGuy4" || body.get_name() == "NPCGuy5" :
 		
-	elif body.get_name() == "NPCGuy3":
-		print("Collision with NPCGuy3 detected!")
-		emit_signal("show_quest3 ");
-		
-	elif body.get_name() == "NPCGuy4":
-		print("Collision with NPCGuy4 detected!")
-		emit_signal("show_quest4");
-		
-	elif body.get_name() == "NPCGuy5":
-		print("Collision with NPCGuy5 detected!")
-		emit_signal("show_quest5");
-		
+		#Invincibility timer: Tried to work on this but couldn't figure out.
+		#if body.get_node("Timer").time_left == 0:
+		#	body.get_node("Timer").start()
+		#	set_collision_mask_bit(0, false)
+
+		body.get_node("Dialogue").hide() 
+		body.get_node("TextEdit").show() #shows the exclamation marks again
+			
+		print("Collision with NPCGuy1 detected!")
 
 func _you_Died():
 	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
 	queue_free() # make the player invisible.
 	game_Path.end_Game()
 	pass # Replace with function body.
+
+################# A function to accept a quest from an NPCGuys
+func quest_accepted(quest):
+	current_quest = quest
+	print("Quest accepted:", quest.name)
 

@@ -9,12 +9,17 @@ onready var _pause_menu = $InterfaceLayer/PauseMenu
 onready var pause_menu_label = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/Label
 onready var resume_button = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/ResumeButton
 onready var playAgain_button = $InterfaceLayer/PauseMenu/ColorRect/CenterContainer/VBoxContainer/PlayAgainButton
+onready var questDisplay = $InterfaceLayer/QuestDisplay
+onready var questDescription = $InterfaceLayer/QuestDisplay/Panel/QuestDescription
+onready var quest = QuestGlobal.quests
 
 func _init():
 	OS.min_window_size = OS.window_size
 	OS.max_window_size = OS.get_screen_size()
 
-
+func _ready():
+	questDisplay.hide()
+	
 #func _notification(what):
 #	if what == NOTIFICATION_WM_QUIT_REQUEST:
 		# We need to clean up a little bit first to avoid Viewport errors.
@@ -40,6 +45,11 @@ func _unhandled_input(event):
 			_pause_menu.close()
 		get_tree().set_input_as_handled()
 
+#DON'T FORGET TO LINK ALL THE NPCs TO THIS
+func _quest_accepted():
+	questDisplay.show()
+	questDescription.set_text(quest)
+
 #function for the result of winning the game. Menu display
 
 func win_Game():
@@ -53,3 +63,6 @@ func end_Game():
 	pause_menu_label.set_text("You died!")
 	playAgain_button.show()
 	resume_button.hide()
+
+
+

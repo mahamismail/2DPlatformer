@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/UserInterface/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/art/ui/quest.png" type="Texture" id=7]
 [ext_resource path="res://src/UserInterface/QuestsMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Actors/NPCGuy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/UserInterface/QuestDisplay.tscn" type="PackedScene" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.5 )
@@ -34,6 +35,8 @@ position = Vector2( 90, 546 )
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 
+[node name="QuestDisplay" parent="InterfaceLayer" instance=ExtResource( 10 )]
+
 [node name="QuestMenu" parent="InterfaceLayer" instance=ExtResource( 8 )]
 
 [node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 1 )]
@@ -44,6 +47,8 @@ margin_bottom = 50.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="HealthCounter" parent="InterfaceLayer" instance=ExtResource( 6 )]
+margin_left = 690.0
+margin_right = 794.0
 custom_styles/panel = SubResource( 2 )
 
 [node name="QuestMenuButton" type="TextureButton" parent="InterfaceLayer"]
@@ -53,5 +58,7 @@ margin_right = 65.0
 margin_bottom = 468.0
 texture_normal = ExtResource( 7 )
 
+[connection signal="quest_accepted" from="Level/NPCs2/NPCGuy1" to="." method="_quest_accepted"]
+[connection signal="quest_accepted" from="Level/NPCs2/NPCGuy2" to="." method="_quest_accepted"]
 [connection signal="you_Died" from="InterfaceLayer/HealthCounter" to="." method="end_Game"]
 [connection signal="pressed" from="InterfaceLayer/QuestMenuButton" to="InterfaceLayer/QuestMenu" method="_on_QuestMenuButton_pressed"]

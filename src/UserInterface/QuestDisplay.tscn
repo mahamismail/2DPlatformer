@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=3]
+
+[node name="QuestDisplay" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 179.0
+margin_right = 614.0
+margin_bottom = 105.0
+
+[node name="Accepted" type="Label" parent="Panel"]
+margin_left = 127.0
+margin_top = 6.0
+margin_right = 374.0
+margin_bottom = 44.0
+rect_scale = Vector2( 0.72, 0.72 )
+text = "QUESt ACCEPTED"
+
+[node name="QuestDescription" type="Label" parent="Panel"]
+margin_left = 22.0
+margin_top = 43.0
+margin_right = 784.0
+margin_bottom = 124.0
+rect_scale = Vector2( 0.520001, 0.520001 )
+text = "Here lies the quest description"
+align = 1
+valign = 1
