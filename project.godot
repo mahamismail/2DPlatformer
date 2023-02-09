@@ -67,7 +67,6 @@ target_fps="60"
 Global="*res://src/UserInterface/Global.gd"
 QuestsMenu="*res://src/UserInterface/QuestsMenu.gd"
 QuestsMenuScene="*res://src/UserInterface/QuestsMenu.tscn"
-QuestDisplay="*res://src/UserInterface/QuestDisplay.tscn"
 QuestGlobal="*res://src/UserInterface/QuestGlobal.gd"
 
 [debug]

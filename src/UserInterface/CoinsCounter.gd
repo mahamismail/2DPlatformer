@@ -3,8 +3,11 @@ extends Panel
 var coins_collected = Global.coins_collected
 
 onready var coins_label = $Label
+#onready var stateOfQ = QuestGlobal.stateOfQ
+#onready var QuestState = QuestGlobal.QuestState
 
 signal you_Win()
+signal updateUIOnComp()
 
 func _ready():
 	coins_label.set_text(str(coins_collected))
@@ -20,6 +23,10 @@ func _collect_coin():
 	coins_collected += 1
 	coins_label.set_text(str(coins_collected))
 	
+	#if stateOfQ == QuestState.INPROGRESS:
 	if coins_collected == 40: #if all 40 coins collected, emit the signal "you win"
+		print("Updating UI")
 		emit_signal("you_Win")
+		emit_signal("updateUIOnComp")
+		#emit_signal("you_Win")
 		pass

@@ -36,6 +36,9 @@ position = Vector2( 461, 281 )
 [node name="NPCGuy2" parent="Level/NPCs2" instance=ExtResource( 9 )]
 position = Vector2( 81, 25 )
 
+[node name="NPCGuy3" parent="Level/NPCs2" instance=ExtResource( 9 )]
+position = Vector2( 878, 87 )
+
 [node name="Player" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 90, 546 )
 
@@ -93,7 +96,13 @@ margin_right = 65.0
 margin_bottom = 468.0
 texture_normal = ExtResource( 7 )
 
+[connection signal="quest_is_inProgress" from="." to="Level/NPCs2/NPCGuy1" method="_quest_is_inProgress"]
+[connection signal="quest_is_inProgress" from="." to="Level/NPCs2/NPCGuy2" method="_quest_is_inProgress"]
+[connection signal="quest_is_inProgress" from="." to="Level/NPCs2/NPCGuy3" method="_quest_is_inProgress"]
 [connection signal="quest_accepted" from="Level/NPCs2/NPCGuy1" to="." method="_quest_accepted"]
 [connection signal="quest_accepted" from="Level/NPCs2/NPCGuy2" to="." method="_quest_accepted"]
+[connection signal="quest_accepted" from="Level/NPCs2/NPCGuy3" to="." method="_quest_accepted"]
+[connection signal="lose_health" from="Level/Player" to="InterfaceLayer/HealthCounter" method="_lose_health"]
+[connection signal="updateUIOnComp" from="InterfaceLayer/CoinsCounter" to="." method="update_UI_OnComp"]
 [connection signal="you_Died" from="InterfaceLayer/HealthCounter" to="." method="end_Game"]
 [connection signal="pressed" from="InterfaceLayer/QuestMenuButton" to="InterfaceLayer/QuestMenu" method="_on_QuestMenuButton_pressed"]

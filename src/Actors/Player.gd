@@ -144,8 +144,9 @@ func get_new_animation(is_shooting = false):
 func _on_Area2D_body_entered(body):
 	if body is Enemy:
 		emit_signal("lose_health");
+		print("Lost health")
 		
-	elif body.get_name() == "NPCGuy1" || body.get_name() == "NPCGuy2" || body.get_name() == "NPCGuy3" || body.get_name() == "NPCGuy4" || body.get_name() == "NPCGuy5" :
+	if body.get_name() == "NPCGuy1" || body.get_name() == "NPCGuy2" || body.get_name() == "NPCGuy3" || body.get_name() == "NPCGuy4" || body.get_name() == "NPCGuy5" :
 		
 		if body.get_node("Timer").time_left == 0:
 			body.get_node("Timer").start()

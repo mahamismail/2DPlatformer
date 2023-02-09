@@ -24,9 +24,6 @@ script = ExtResource( 2 )
 
 [node name="NPCs2" type="Node2D" parent="Level"]
 
-[node name="NPCGuy3" parent="Level/NPCs2" instance=ExtResource( 9 )]
-position = Vector2( 77, -8 )
-
 [node name="NPCGuy4" parent="Level/NPCs2" instance=ExtResource( 9 )]
 position = Vector2( 79, 279 )
 
@@ -60,7 +57,8 @@ margin_right = 65.0
 margin_bottom = 468.0
 texture_normal = ExtResource( 7 )
 
-[connection signal="quest_accepted" from="Level/NPCs2/NPCGuy3" to="." method="_quest_accepted"]
+[connection signal="quest_is_inProgress" from="." to="Level/NPCs2/NPCGuy4" method="_quest_is_inProgress"]
+[connection signal="quest_is_inProgress" from="." to="Level/NPCs2/NPCGuy5" method="_quest_is_inProgress"]
 [connection signal="quest_accepted" from="Level/NPCs2/NPCGuy4" to="." method="_quest_accepted"]
 [connection signal="quest_accepted" from="Level/NPCs2/NPCGuy5" to="." method="_quest_accepted"]
 [connection signal="pressed" from="InterfaceLayer/QuestMenuButton" to="InterfaceLayer/QuestMenu" method="_on_QuestMenuButton_pressed"]
